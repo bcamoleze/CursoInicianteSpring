@@ -43,7 +43,9 @@ public class Entidade {
 	@Column(length = 100)
 	private String email;
 	
-	@OneToMany(mappedBy = "entidade")
+	// O nome em mappedBy deve ser o mesmo nome do objeto
+	// na entidade (classe) relacionada
+	@OneToMany(mappedBy = "entidade", orphanRemoval = true) //orphanRemoval = true Não pode ter títulos sem entidade 
 	private List<Titulo> titulos = new ArrayList<>();
 	
 	public Long getCodigo() {

@@ -4,12 +4,15 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -34,7 +37,34 @@ public class Titulo {
 	private BigDecimal valorPago;
 	private BigDecimal valorOriginal;
 	
+	@Enumerated(EnumType.STRING)
+	private Situacao situacao;
 	
+	@Enumerated(EnumType.STRING)
+	private Tipo tipo;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "tipoPagamentoID")
+	private TipoPagamento tipoPagamento;
+	
+	public Situacao getSituacao() {
+		return situacao;
+	}
+	public void setSituacao(Situacao situacao) {
+		this.situacao = situacao;
+	}
+	public Tipo getTipo() {
+		return tipo;
+	}
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}
+	public TipoPagamento getTipoPagamento() {
+		return tipoPagamento;
+	}
+	public void setTipoPagamento(TipoPagamento tipoPagamento) {
+		this.tipoPagamento = tipoPagamento;
+	}
 	public Long getCodigo() {
 		return codigo;
 	}
