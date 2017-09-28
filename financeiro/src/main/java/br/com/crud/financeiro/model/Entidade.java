@@ -103,4 +103,13 @@ public class Entidade {
 		this.email = email;
 	}
 	
+	@Override
+	public String toString() {
+		return "Entidade [codigo=" + codigo + ", nome=" + nome + ", cpfCnpj=" + cpfCnpj + ", endereco=" + endereco
+				+ ", cidade=" + cidade + ", bairro=" + bairro + ", estado=" + estado + ", telefone=" + telefone
+				+ ", email=" + email + "]";
+	}
+	
+	
+	
 }
