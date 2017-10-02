@@ -16,22 +16,72 @@
 						<div class="card-content black-text">
 							<span class="card-title">Cadastro de Entidade</span>
 							<div class="row">
-								
-								<form class="col s12" method="post" th:action="@{/entidades/novo}" th:object="${entidade}">
+
+								<form class="col s12" method="post"
+									th:action="@{/entidades/novo}" th:object="${entidade}">
+									
+									<input type="hidden" th:field="*{codigo}" />
+									
 									<div class="row">
+
 										<div class="input-field col s6">
-											<input id="nome" type="text" class="validate" name="nome"/>
-											<label for="nome">Nome</label>
+											<input id="nome" type="text" class="validate" th:field="*{nome}" 
+												   th:classappend="${#fields.hasErrors('nome')} ? invalid"/>
+											<label for="nome" data-error="Campo nome não pode ser nulo!">Nome</label>
 										</div>
+
 										<div class="input-field col s6">
-											<input id="cpfCnpj" type="text" class="validate" name="cpfCnpj"/> 
-											<label for="cpfCnpj">CPF/CNPJ</label>
+											<input id="cpfCnpj" type="text" class="validate" th:field="*{cpfCnpj}" 
+												   th:classappend="${#fields.hasErrors('cpfCnpj')} ? invalid"/>
+											<label for="cpfCnpj" data-error="Campo CPF/CNPJ não pode ser nulo!">CPF/CNPJ</label>
+										</div>
+
+										<div class="input-field col s6">
+											<select id="estado" type="text" class="validate" th:field="*{estado}">
+												<option value="" disabled="disabled" selected="selected">Selecione o estado</option>
+												<option value="SP">São Paulo</option>
+												<option value="PR">Paraná</option>
+											</select> 
+										</div>
+
+										<div class="input-field col s6">
+											<select id="cidade" type="text" class="validate" th:field="*{cidade}">
+												<option value="" disabled="disabled" selected="selected">Selecione a cidade</option>
+												<option value="Candido Mota">Candido Mota</option>
+												<option value="Assis">Assis</option>
+												<option value="Londrina">Londrina</option>
+											</select> 
+										</div>
+
+
+										<div class="input-field col s6">
+											<input id="endereco" type="text" class="validate" th:field="*{endereco}" 
+												   th:classappend="${#fields.hasErrors('endereco')} ? invalid"/>
+											<label for="endereco" data-error="Campo endereço não pode ser nulo!">Endereço</label>
+										</div>
+
+										<div class="input-field col s6">
+											<input id="bairro" type="text" class="validate" th:field="*{bairro}" />
+											<label for="bairro">Bairro</label>
+										</div>
+
+										<div class="input-field col s6">
+											<input id="telefone" type="text" class="validate" th:field="*{telefone}" 
+												   th:classappend="${#fields.hasErrors('telefone')} ? invalid"/> 
+											<label for="telefone" data-error="Campo telefone não pode ser nulo!">Telefone</label>
+										</div>
+
+										<div class="input-field col s6">
+											<input id="email" type="email" class="validate" th:field="*{email}" 
+												   th:classappend="${#fields.hasErrors('email')} ? invalid"/> 
+											<label for="email" data-error="O E-Mail não é válido!" data-success="E-Mail válido!">E-Mail</label>
 										</div>
 
 									</div>
-									
-									<button class="btn waves-effect deep-purple darken-4" type="submit" name="action">
-										Salvar <i class="material-icons right"> send </i>
+
+									<button class="btn waves-effect deep-purple darken-4"
+										type="submit" name="action">
+										Salvar <i class="material-icons right"> save </i>
 									</button>
 
 								</form>
