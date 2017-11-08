@@ -1,4 +1,4 @@
-package br.com.crud.financeiro;
+package com.crud.financeiro;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

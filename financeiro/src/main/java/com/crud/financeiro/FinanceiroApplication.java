@@ -1,4 +1,4 @@
-package br.com.crud.financeiro;
+package com.crud.financeiro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,4 +10,3 @@ public class FinanceiroApplication {
 		SpringApplication.run(FinanceiroApplication.class, args);
 	}
 }
-

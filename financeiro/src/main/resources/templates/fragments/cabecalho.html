@@ -3,35 +3,29 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <nav class="deep-purple darken-4" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Curso Spring Boot Inicante</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Spring Boot</a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="@{/entidades}">Entidades</a></li>
-            <li><a href="@{/titulos}">Títulos</a></li>
-            
-            <!-- Chamada dropdown2 -->
+            <li><a th:href="@{/entidades}">Entidades</a></li>
+            <li><a th:href="@{/titulos}">Títulos</a></li>
             <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Cadastros<i class="material-icons right">arrow_drop_down</i></a></li>
-            
-            <!-- Definição da Estrutura do Dropdown dropdown2 -->
-            <ul id="dropdown2" class="dropdown-content" >
-                <li><a href="@{/entidades/novo}">Entidade</a></li>
-                <li><a href="@{/titulos/novo}">Título</a></li>
+            <ul id="dropdown2" class="dropdown-content">
+                <li><a th:href="@{/entidades/novo}">Entidade</a></li>
+                <li><a th:href="@{/titulos/novo}">Título</a></li>
             </ul>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-            <li><a href="@{/entidades}"> Entidades </a></li>
-            <li><a href="@{/titulos}"> Títulos </a></li>
+            <li><a th:href="@{/entidades}">Entidades</a></li>
+            <li><a th:href="@{/titulos}">Títulos</a></li>
             <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Cadastros<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
-        <!-- Chamada dropdown1 -->
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
 </nav>
 
-<!-- Definição da Estrutura do Dropdown dropdown1 -->
 <ul id="dropdown1" class="dropdown-content">
-    <li><a href="@{/entidades/novo}"> Entidade </a></li>
-    <li><a href="@{/titulos/novo}"> Título </a></li>
+    <li><a th:href="@{/entidades/novo}">Entidade</a></li>
+    <li><a th:href="@{/titulos/novo}">Título</a></li>
 </ul>
 
 </html>
